@@ -18,12 +18,10 @@ public class BrowserConfig {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", chromepath);
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");
-			options.addArguments("start-maximized"); // open Browser in maximized mode
-			options.addArguments("disable-infobars"); // disabling infobars
-			options.addArguments("--disable-extensions"); // disabling extensions
-			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-			options.addArguments("--no-sandbox"); // Bypass OS security model
+			options.addArguments("--no-sandbox");
+			options.addArguments("--headless"); //should be enabled for Jenkins
+			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
+			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 			WebDriver driver = new ChromeDriver(options);
 			driver = new ChromeDriver();
 //			driver.manage().window().maximize();
