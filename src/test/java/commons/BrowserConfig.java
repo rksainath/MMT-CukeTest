@@ -14,7 +14,7 @@ public class BrowserConfig {
 		String browser = browserName.toLowerCase();
 		switch (browser) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", path + "chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/usr/lib64/chromium-browser/chromedriver");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			break;
