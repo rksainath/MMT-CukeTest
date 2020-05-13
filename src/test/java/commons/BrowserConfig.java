@@ -19,6 +19,7 @@ public class BrowserConfig {
 
 	public BrowserConfig(String browserName) {
 		String browser = browserName.toLowerCase();
+		URL game = null;
 		switch (browser) {
 		case "chrome":
 			DesiredCapabilities dc = DesiredCapabilities.chrome();
@@ -39,13 +40,13 @@ public class BrowserConfig {
 //			options.addArguments("--ignore-certificate-errors");
 //			
 			try {
-				URL game = new URL("http://elastic.rapidtestpro.com:4123/wd/hub");
-				driver = new RemoteWebDriver(game,dc);
+				game = new URL("http://172.17.0.21:4123/wd/hub");
+				
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			driver = new RemoteWebDriver(game,dc);
 //			driver = new ChromeDriver(options);
 
 			//			driver.manage().window().maximize();
