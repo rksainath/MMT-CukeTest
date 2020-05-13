@@ -17,7 +17,7 @@ public class BrowserConfig {
 	public String path = "src/test/resources/drivers/";
 	public static String chromepath = "/usr/local/bin/chromedriver";
 
-	public BrowserConfig(String browserName) throws MalformedURLException {
+	public BrowserConfig(String browserName) {
 		String browser = browserName.toLowerCase();
 		switch (browser) {
 		case "chrome":
@@ -32,8 +32,15 @@ public class BrowserConfig {
 			options.addArguments("--remote-debugging-port=9222");
 			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
 //			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
-			URL gamelan = new URL("http://localhost:4111/wd/hub");
-			WebDriver driver = new RemoteWebDriver(gamelan,dcap);
+			URL gamelan;
+			try {
+				gamelan = new URL("http://localhost:4111/wd/hub");
+				driver = new RemoteWebDriver(gamelan,dcap);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 //			WebDriver driver = new ChromeDriver(options);
 			driver = new ChromeDriver();
 //			driver.manage().window().maximize();
