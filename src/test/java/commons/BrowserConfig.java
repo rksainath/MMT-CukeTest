@@ -39,7 +39,7 @@ public class BrowserConfig {
 //			options.addArguments("--ignore-certificate-errors");
 //			
 			try {
-				URL game = new URL("http://elastic.rapidtestpro.com:4444/wd/hub");
+				URL game = new URL("http://elastic.rapidtestpro.com:4123/wd/hub");
 				driver = new RemoteWebDriver(game,dc);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
