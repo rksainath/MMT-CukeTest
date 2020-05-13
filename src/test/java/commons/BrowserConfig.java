@@ -40,7 +40,7 @@ public class BrowserConfig {
 //			options.addArguments("--ignore-certificate-errors");
 //			
 			try {
-				game = new URL("http://172.17.0.21:4123/wd/hub");
+				game = new URL("http://172.17.0.21:4445/wd/hub");
 				
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
