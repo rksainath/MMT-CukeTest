@@ -26,15 +26,20 @@ public class BrowserConfig {
 			System.setProperty("webdriver.chrome.verboseLogging", "true");
 			ChromeOptions options = new ChromeOptions();
 			options.setBinary("/usr/bin/google-chrome-stable");
+			options.addArguments("--window-size=1920,1080");
+			options.addArguments("--disable-extensions");
+			options.addArguments("--proxy-server='direct://'");
+			options.addArguments("--proxy-bypass-list=*");
+			options.addArguments("--start-maximized");
+			options.addArguments("--headless");
+			options.addArguments("--disable-gpu");
+			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("--no-sandbox");
-//			options.addArguments("--headless"); //should be enabled for Jenkins
-			options.addArguments("--remote-debugging-port=9222");
-			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
-//			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
-			
+			options.addArguments("--ignore-certificate-errors");
+
 			driver = new ChromeDriver(options);
-//			driver = new ChromeDriver();
-//			driver.manage().window().maximize();
+			//			driver = new ChromeDriver();
+			//			driver.manage().window().maximize();
 			break;
 
 		case "firefox":
