@@ -16,7 +16,7 @@ public class BrowserConfig {
 		String browser = browserName.toLowerCase();
 		switch (browser) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", chromepath);
+			System.setProperty("webdriver.chrome.driver", path + "chromedriver.exe");
 			System.setProperty("webdriver.chrome.logfile", path+"chromedriver.log");
 			System.setProperty("webdriver.chrome.verboseLogging", "true");
 			ChromeOptions options = new ChromeOptions();
