@@ -23,6 +23,7 @@ public class BrowserConfig {
 			options.setBinary("/usr/bin/google-chrome-stable");
 			options.addArguments("--no-sandbox");
 			options.addArguments("--headless"); //should be enabled for Jenkins
+			options.addArguments("--remote-debugging-port=9222");
 			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
 //			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 			WebDriver driver = new ChromeDriver(options);
