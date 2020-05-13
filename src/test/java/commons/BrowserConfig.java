@@ -21,24 +21,33 @@ public class BrowserConfig {
 		String browser = browserName.toLowerCase();
 		switch (browser) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", chromepath);
-			System.setProperty("webdriver.chrome.logfile", path+"chromedriver.log");
-			System.setProperty("webdriver.chrome.verboseLogging", "true");
-			ChromeOptions options = new ChromeOptions();
-			options.setBinary("/usr/bin/google-chrome-stable");
-			options.addArguments("--window-size=1920,1080");
-			options.addArguments("--disable-extensions");
-			options.addArguments("--proxy-server='direct://'");
-			options.addArguments("--proxy-bypass-list=*");
-			options.addArguments("--start-maximized");
-			options.addArguments("--headless");
-			options.addArguments("--disable-gpu");
-			options.addArguments("--disable-dev-shm-usage");
-			options.addArguments("--no-sandbox");
-			options.addArguments("--ignore-certificate-errors");
+			DesiredCapabilities dc = DesiredCapabilities.chrome();
+//			System.setProperty("webdriver.chrome.driver", chromepath);
+//			System.setProperty("webdriver.chrome.logfile", path+"chromedriver.log");
+//			System.setProperty("webdriver.chrome.verboseLogging", "true");
+//			ChromeOptions options = new ChromeOptions();
+//			options.setBinary("/usr/bin/google-chrome-stable");
+//			options.addArguments("--window-size=1920,1080");
+//			options.addArguments("--disable-extensions");
+//			options.addArguments("--proxy-server='direct://'");
+//			options.addArguments("--proxy-bypass-list=*");
+//			options.addArguments("--start-maximized");
+//			options.addArguments("--headless");
+//			options.addArguments("--disable-gpu");
+//			options.addArguments("--disable-dev-shm-usage");
+//			options.addArguments("--no-sandbox");
+//			options.addArguments("--ignore-certificate-errors");
+//			
+			try {
+				URL game = new URL("http://elastic.rapidtestpro.com:4444/wd/hub");
+				driver = new RemoteWebDriver(game,dc);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-			driver = new ChromeDriver(options);
-			//			driver = new ChromeDriver();
+//			driver = new ChromeDriver(options);
+
 			//			driver.manage().window().maximize();
 			break;
 
