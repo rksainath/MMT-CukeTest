@@ -48,8 +48,7 @@ public class BrowserConfig {
 			}
 			driver = new RemoteWebDriver(game,dc);
 //			driver = new ChromeDriver(options);
-
-			//			driver.manage().window().maximize();
+			driver.manage().window().maximize();
 			break;
 
 		case "firefox":
