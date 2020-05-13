@@ -21,28 +21,19 @@ public class BrowserConfig {
 		String browser = browserName.toLowerCase();
 		switch (browser) {
 		case "chrome":
-			DesiredCapabilities dcap = DesiredCapabilities.chrome();
 			System.setProperty("webdriver.chrome.driver", chromepath);
 			System.setProperty("webdriver.chrome.logfile", path+"chromedriver.log");
 			System.setProperty("webdriver.chrome.verboseLogging", "true");
 			ChromeOptions options = new ChromeOptions();
-//			options.setBinary("/usr/bin/google-chrome-stable");
+			options.setBinary("/usr/bin/google-chrome-stable");
 			options.addArguments("--no-sandbox");
 			options.addArguments("--headless"); //should be enabled for Jenkins
 			options.addArguments("--remote-debugging-port=9222");
 			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
 //			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
-			URL gamelan;
-			try {
-				gamelan = new URL("http://selenium:4111/wd/hub");
-				driver = new RemoteWebDriver(gamelan,dcap);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
-//			WebDriver driver = new ChromeDriver(options);
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
+//			driver = new ChromeDriver();
 //			driver.manage().window().maximize();
 			break;
 
