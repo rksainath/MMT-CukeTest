@@ -34,7 +34,7 @@ public class BrowserConfig {
 //			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 			URL gamelan;
 			try {
-				gamelan = new URL("http://localhost:4111/wd/hub");
+				gamelan = new URL("http://selenium:4111/wd/hub");
 				driver = new RemoteWebDriver(gamelan,dcap);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
