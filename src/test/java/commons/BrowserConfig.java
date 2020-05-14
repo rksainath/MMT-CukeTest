@@ -22,22 +22,22 @@ public class BrowserConfig {
 		URL game = null;
 		switch (browser) {
 		case "chrome":
-			DesiredCapabilities dc = DesiredCapabilities.chrome();
+//			DesiredCapabilities dc = DesiredCapabilities.chrome();
 //			System.setProperty("webdriver.chrome.driver", chromepath);
 //			System.setProperty("webdriver.chrome.logfile", path+"chromedriver.log");
 //			System.setProperty("webdriver.chrome.verboseLogging", "true");
-//			ChromeOptions options = new ChromeOptions();
+			ChromeOptions options = new ChromeOptions();
 //			options.setBinary("/usr/bin/google-chrome-stable");
 //			options.addArguments("--window-size=1920,1080");
 //			options.addArguments("--disable-extensions");
 //			options.addArguments("--proxy-server='direct://'");
 //			options.addArguments("--proxy-bypass-list=*");
-//			options.addArguments("--start-maximized");
+			options.addArguments("--start-maximized");
 //			options.addArguments("--headless");
 //			options.addArguments("--disable-gpu");
 //			options.addArguments("--disable-dev-shm-usage");
 //			options.addArguments("--no-sandbox");
-//			options.addArguments("--ignore-certificate-errors");
+			options.addArguments("--ignore-certificate-errors");
 //			
 			try {
 				game = new URL("http://172.17.0.21:4445/wd/hub");
@@ -46,9 +46,8 @@ public class BrowserConfig {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			driver = new RemoteWebDriver(game,dc);
+			driver = new RemoteWebDriver(game,options);
 //			driver = new ChromeDriver(options);
-			driver.manage().window().maximize();
 			break;
 
 		case "firefox":
