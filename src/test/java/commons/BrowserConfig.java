@@ -34,7 +34,7 @@ public class BrowserConfig {
 //			options.addArguments("--proxy-bypass-list=*");
 			options.addArguments("--start-maximized");
 //			options.addArguments("--headless");
-//			options.addArguments("--disable-gpu");
+			options.addArguments("--disable-gpu");
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("--no-sandbox");
 			options.addArguments("--ignore-certificate-errors");
